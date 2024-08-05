@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+</head>
+<body>
+  <header>
+      <h1>Welcome, <%= JSON.stringify(it.data.info) %> 🦖</h1>
+  </header>
+  <main>
+    <a href="/signout">Logout</a>
+    <br>
+    <a href="/data">Data for the event</a>
+    <br>
+    <% if (it.admin) { %>
+    <a href="/admin">Open admin panel</a>
+    <% } %>
+  </main>
+</body>
+</html>

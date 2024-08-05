@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Data Form</title>
+</head>
+<body>
+  <header>
+      <h1>Data for the event</h1>
+  </header>
+  <main>
+    <a href="/">Home</a>
+    
+    <form action="/data" method="post">
+    <h2>Space ship name:</h2>
+    <input type="text" id="space_ship_name" name="space_ship_name" value="<%= it.data.space_ship_name %>" maxlength="<%= it.limit.space_ship_name %>" required>
+    <h2>Space ship number:</h2>
+    <input type="text" id="space_ship_number" name="space_ship_number" value="<%= it.data.space_ship_number %>" maxlength="<%= it.limit.space_ship_number %>" required>
+    
+    <h2>Crew name:</h2>
+    <input type="text" id="crew_name" name="crew_name" value="<%= it.data.crew_name %>" maxlength="<%= it.limit.crew_name %>" required>
+    <h2>Captain license number:</h2>
+    <input type="text" id="captain_licence_number" name="captain_licence_number" value="<%= it.data.captain_licence_number %>" maxlength="<%= it.limit.captain_licence_number %>" required>
+    <h2>Captain name:</h2>
+    <input type="text" id="captain_name" name="captain_name" value="<%= it.data.captain_name %>" maxlength="<%= it.limit.captain_name %>" required>
+
+    <h2>valid until: <%= it.data.valid_until %></h2>
+    <input type="date" id="valid_until" name="valid_until" value="<%= it.data.valid_until %>" readonly hidden required>
+
+    <input type="submit" value="save">
+    </form>
+
+  </main>
+</body>
+</html>

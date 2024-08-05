@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <script type="module">
+    import { createApp } from '/static/vue/vue.esm-browser.prod.js';
+    import MyComponent from '/static/vue/MyComponent.js';
+
+    createApp(MyComponent).mount('#app');
+  </script>
+  
+</head>
+<body>
+
+<div id="app">
+    vue3 injection for frontend is alive.
+    <!-- ETA template will render the component here -->
+  </div>
+  
+
+  <header>
+    <h1>Hono + Deno KV OAuth</h1>
+  </header>
+  <main>
+    <a href="/signin-google">Login using google</a>
+    <br>
+    <a href="/signin-x">Login using X</a>
+  </main>
+
+
+
+</body>
+</html>

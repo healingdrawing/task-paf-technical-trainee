@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error <%= it.code %></title>
+</head>
+<body>
+  <header>
+    <h1>Error <%= it.code %></h1>
+  </header>
+  <%= it.info %>
+  <a href="/">Home</a>
+</body>
+</html>
