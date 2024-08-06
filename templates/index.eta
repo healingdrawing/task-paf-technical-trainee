@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
   <script type="module">
     import { createApp } from '/static/vue/vue.esm-browser.prod.js';
     import MyComponent from '/static/vue/MyComponent.js';
