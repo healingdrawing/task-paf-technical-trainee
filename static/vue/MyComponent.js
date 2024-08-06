@@ -1,4 +1,4 @@
-import { ref } from '../vue/vue.esm-browser.prod.js';
+import { ref } from './vue.esm-browser.prod.js';
 
 export default {
   setup() {
