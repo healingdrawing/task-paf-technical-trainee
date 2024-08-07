@@ -1,0 +1,5 @@
+<footer>
+  <p><b>Privacy Policy:</b> The website does not collect any human-readable information from OAuth2 providers, such as Google, Twitter, etc. Authentication is managed using non-human-readable identifiers provided by OAuth2 solutions. Only the human-readable information provided by the user input is managed in the database.
+  <br><b>The human-readable nickname is only visible to the logged-in user.</b>
+  <br>&copy; 2024 <a href="https://healingdrawing.github.io" target="_blank">Healing Drawing</a>. All rights reserved.
+</footer>

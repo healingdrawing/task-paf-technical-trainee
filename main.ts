@@ -4,7 +4,7 @@ import {
   signin_google, callback_google,
   signin_x, callback_x,
   custom_http_exception,
-  home_vue,
+  vue_slideshow,
 } from "./deps.ts"
 
 const app = new Hono()
@@ -17,7 +17,7 @@ app.use(bodyLimit({maxSize: 10*1024, onError: async (c) => {
 
 app.use('/static/*', serveStatic({root:""})) //todo try support vue
 
-app.route("/vue", home_vue) //todo remove later. for home page injection
+app.route("/vue-slideshow", vue_slideshow) //todo remove later. for home page injection
 
 app.route('/', home)
 app.route("/data", data)

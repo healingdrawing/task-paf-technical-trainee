@@ -1,25 +1,31 @@
 import { ref, onMounted, onBeforeUnmount } from './vue.esm-browser.prod.js';
 
 export default {
-  setup() {
+  props: {
+    path: {
+      type: String,
+      required: true
+    }
+  },
+  setup(props) {
     const slides = ref([]);
     const currentSlide = ref(0);
     let intervalId = null;
 
     onMounted(async () => {
       try {
-        const response = await fetch('/vue');
+        const response = await fetch(props.path);
         const data = await response.json();
         const promises = data.map(url => fetch(url).then(response => response.blob()));
         const blobs = await Promise.all(promises);
         slides.value = blobs.map(blob => URL.createObjectURL(blob));
-        startSlideshow();
+        start_slideshow();
       } catch (error) {
         console.error('Error fetching slides:', error);
       }
     });
 
-    function startSlideshow() {
+    function start_slideshow() {
       intervalId = setInterval(() => {
         currentSlide.value = (currentSlide.value + 1) % slides.value.length;
       }, 8000); // 8 seconds, shorter looks bad
@@ -41,6 +47,5 @@ export default {
         <img :src="slide" alt="Slide" />
       </div>
     </div>
-  `,
-  
+  `,  
 };

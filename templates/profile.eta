@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <%~ include("/head.eta") %>
+  <%~ include("/head-vue-profile.eta") %>
+
   <title>Profile</title>
 </head>
 <body>
+
+  <div id="vue-slideshow"></div>
+
   <header>
-      <h1>Welcome, <%= JSON.stringify(it.data.info) %> 🦖</h1>
+      <h1>⚓️ Welcome, <%= JSON.stringify(it.data.info) %> ⚓️</h1>
   </header>
   <main>
     <a href="/signout">Logout</a>

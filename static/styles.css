@@ -16,3 +16,31 @@ body{
     opacity: 1;
   }
 }
+
+footer{
+  margin: 0 auto;
+  font-size: 0.5em;
+}
+
+/* admin functionality simplifying */
+body.admin{
+  background: hsl(60, 20%, 60%);
+  padding-top: 1em;
+  padding-bottom: 1em;
+  
+}
+
+body.admin input[type="text"]{
+  border-color: black;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: calc(100% - 1em); /* add space , but not riase scrolls */
+  box-sizing: border-box; /* include padding and border in width calculation */
+  overflow: hidden; /* prevent horizontal scrollbar */
+  text-align: center;
+}
+
+
+body.admin hr{
+  border-color: black !important;
+}

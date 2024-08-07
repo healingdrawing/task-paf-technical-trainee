@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="/static/styles.css">
-  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <%~ include("/head.eta") %>
+  <%~ include("/head-vue-index.eta") %>
 
   <title>TTSR Home</title>
-  
-  <link rel="stylesheet" type="text/css" href="/static/styles-vue.css">
-  <script type="module" src="/static/vue/index-eta.js"></script>
-  
 </head>
 <body>
 
@@ -18,17 +12,16 @@
     <!-- finally vue3 slideshow component renders here -->
   </div>
   
+  <%~ include("/ppc.eta") %>
 
   <header>
     <h1>The Tall Ships Races Registration</h1>
   </header>
   <main>
-    <a href="/signin-google">Login using google</a>
+    <a href="/signin-google">Login using Google</a>
     <br>
     <a href="/signin-x">Login using X</a>
   </main>
-
-
 
 </body>
 </html>

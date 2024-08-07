@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <%~ include("/head.eta") %>
   <title>Admin Panel</title>
 </head>
 <style>
   body {word-break:break-word} /* break long json strings */
 </style>
-<body>
+<body class="admin">
   <header>
-      <h1>Welcome, <%= JSON.stringify(it.data.info) %> 🦖</h1>
+      <h1>Welcome, <%= JSON.stringify(it.data.info) %> </h1>
       <h2>Your system id is: <%= JSON.stringify(it.data.id) %></h2>
   </header>
   <main>
@@ -21,7 +21,7 @@
     <form action="/import-file" method="post" enctype="multipart/form-data">
       <input type="file" name="file" accept=".json" required>
       <br>
-      <input type="submit" value="Import data from file(use database file from your computer)">
+      <input type="submit" value="Import data from file(use database file from your computer). Data will be updated">
     </form>
 
     <hr>

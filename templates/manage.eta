@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <%~ include("/head.eta") %>
   <title>Manage Registration Data</title>
 </head>
-<body>
+<body class="admin">
   <header>
     <a href="/">Home</a>
-    <p>You are <% if (!it.admin) { %> not <% }%>admin:
-    <%= it.data.info %></p>
+    <p>You are admin, <%= JSON.stringify(it.data.info) %>.</p>
     <p>id: <%= it.data.id %></p>
   </header>
   <main>
