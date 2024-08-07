@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Edit Data Form</title>
+  <title>TTSR Edit</title>
 </head>
 <body>
   <header>
-      <h1>Data for the event</h1>
+      <h1>Registration Data</h1>
   </header>
   <main>
     <a href="/">Home</a>
     
     <form action="/data" method="post">
-    <h2>Space ship name:</h2>
-    <input type="text" id="space_ship_name" name="space_ship_name" value="<%= it.data.space_ship_name %>" maxlength="<%= it.limit.space_ship_name %>" required>
-    <h2>Space ship number:</h2>
-    <input type="text" id="space_ship_number" name="space_ship_number" value="<%= it.data.space_ship_number %>" maxlength="<%= it.limit.space_ship_number %>" required>
+    <h2>Ship name:</h2>
+    <input type="text" id="ship_name" name="ship_name" value="<%= it.data.ship_name %>" maxlength="<%= it.limit.ship_name %>" required>
+    <h2>Ship number:</h2>
+    <input type="text" id="ship_number" name="ship_number" value="<%= it.data.ship_number %>" maxlength="<%= it.limit.ship_number %>" required>
     
     <h2>Crew name:</h2>
     <input type="text" id="crew_name" name="crew_name" value="<%= it.data.crew_name %>" maxlength="<%= it.limit.crew_name %>" required>

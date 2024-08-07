@@ -1,10 +1,11 @@
 export { join } from "https://deno.land/std@0.224.0/path/mod.ts"
+export { format } from "https://deno.land/std@0.91.0/datetime/mod.ts";
 export { dprint } from "./debug/debug.ts"
 export { providers } from "./oauth2/utils.ts"
 
 // const db_path = join(Deno.cwd(), "kvdb")
 // console.log(db_path)
-export const kvdb = await Deno.openKv() //in some reasons ("db") crushes deploying
+export const kvdb = await Deno.openKv() //todo in some reasons Deno.openKv("db") crushes deploying. So in time of local dev. first run with "db". It will creates the db db-shm db-wal. After that remove "db". Later it works as expected. What actually very specific implementation too.
 
 
 import { join } from "https://deno.land/std@0.224.0/path/mod.ts"

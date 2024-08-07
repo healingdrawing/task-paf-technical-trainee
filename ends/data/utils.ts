@@ -3,8 +3,8 @@ import { BodyData } from "https://deno.land/x/hono@v4.3.11/utils/body.ts";
 import { Google_Profile_Data, X_Profile_Data, kvdb, z } from "../../deps.ts"
 
 interface Data_Form_Limits {
-  space_ship_name:number
-  space_ship_number:number
+  ship_name:number
+  ship_number:number
   crew_name:number
   captain_licence_number:number
   captain_name:number
@@ -12,16 +12,16 @@ interface Data_Form_Limits {
 
 /** limits for length of fields for interface Data */
 export const data_form_limits:Data_Form_Limits = {
-  space_ship_name: 100,
-  space_ship_number: 100,
+  ship_name: 100,
+  ship_number: 100,
   crew_name: 100,
   captain_licence_number: 100,
   captain_name: 100,
 }
 
 export interface Data {
-  space_ship_name: string
-  space_ship_number: string
+  ship_name: string
+  ship_number: string
   crew_name: string
   captain_licence_number: string
   captain_name: string
@@ -30,8 +30,8 @@ export interface Data {
 
 export const data_schema = z.object(
   {
-    space_ship_name: z.string().trim().min(1).max(data_form_limits.space_ship_name),
-    space_ship_number: z.string().trim().min(1).max(data_form_limits.space_ship_number),
+    ship_name: z.string().trim().min(1).max(data_form_limits.ship_name),
+    ship_number: z.string().trim().min(1).max(data_form_limits.ship_number),
     crew_name: z.string().trim().min(1).max(data_form_limits.crew_name),
     captain_licence_number: z.string().trim().min(1).max(data_form_limits.captain_licence_number),
     captain_name: z.string().trim().min(1).max(data_form_limits.captain_name),
@@ -60,8 +60,8 @@ export const data_schema_array = z.array(
 export const data_with_id_schema = data_schema.extend({ system_id: z.string(), });// for case of admin edit the record
 
 export const data_placeholder:Data = {
-  space_ship_name: "N/A",
-  space_ship_number: "N/A",
+  ship_name: "N/A",
+  ship_number: "N/A",
   crew_name: "N/A",
   captain_licence_number: "N/A",
   captain_name: "N/A",

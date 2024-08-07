@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Data</title>
+  <title>TTSR Data</title>
 </head>
 <body>
   <header>
-      <h1>Data for the event</h1>
+      <h1>Registration Data</h1>
   </header>
   <main>
     <a href="/">Home</a>
     
-    <h2>Space ship name:</h2>
-    <p><%= it.space_ship_name %></p>
-    <h2>Space ship number:</h2>
-    <p><%= it.space_ship_number %></p>
+    <h2>Ship name:</h2>
+    <p><%= it.ship_name %></p>
+    <h2>Ship number:</h2>
+    <p><%= it.ship_number %></p>
     
     <h2>Crew name:</h2>
     <p><%= it.crew_name %></p>

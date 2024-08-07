@@ -2,7 +2,7 @@ import {
   Hono, Tokens, kvdb, getSessionId,
   providers, fetch_profile_data,
   is_admin, get_all_data_records,
-  throw_error,
+  throw_error, format
 } from "../../deps.ts"
 
 const app = new Hono()
@@ -43,10 +43,12 @@ app.get("/",
 
     const to_download = JSON.stringify(records)
 
+    const dt = format(new Date(), "[yyyy-MM-dd] HH-mm-ss")
+
     return new Response(to_download, {
       headers: new Headers({
         "Content-Type": "application/json",
-        "Content-Disposition": "attachment; filename=file.json",
+        "Content-Disposition": `attachment; filename=TTSR ${dt}.json`,
       }),
     });
   }
