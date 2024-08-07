@@ -1,4 +1,4 @@
 import { createApp } from './vue.esm-browser.prod.js';
-import MyComponent from './MyComponent.js';
+import slideshow from './Slideshow-Component.js';
 
-createApp(MyComponent).mount('#app');
+createApp(slideshow).mount('#vue-slideshow');

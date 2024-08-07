@@ -7,14 +7,15 @@
   <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
 
   <title>Home</title>
+  
+  <link rel="stylesheet" type="text/css" href="/static/styles-vue.css">
   <script type="module" src="/static/vue/index-eta.js"></script>
   
 </head>
 <body>
 
-<div id="app">
-    vue3 injection for frontend is alive.
-    <!-- ETA template will render the component here -->
+  <div id="vue-slideshow">
+    <!-- finally vue3 slideshow component renders here -->
   </div>
   
 

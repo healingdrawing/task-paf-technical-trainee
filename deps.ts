@@ -67,3 +67,6 @@ export { default as signin_x } from "./oauth2/signin_x.ts"
 
 export { default as callback_google } from "./oauth2/callback_google.ts"
 export { default as callback_x } from "./oauth2/callback_x.ts"
+
+/* manage vue3 specific requests */
+export { default as home_vue } from "./ends/vue/home.ts"
