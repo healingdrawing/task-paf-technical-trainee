@@ -42,6 +42,10 @@ export function throw_error(status_code:StatusCode, message?:string){
 }
 
 export const custom_http_exception = (status_code:StatusCode):HTTPException => {
+  console.log(dprint(
+    "CUSTOM_HTTP_EXCEPTION",
+    status_code.toString() + " | " + error_message(status_code)
+  ))
   return new HTTPException(status_code, {message: error_message(status_code)})
 }
 
