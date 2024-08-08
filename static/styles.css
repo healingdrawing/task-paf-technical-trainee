@@ -22,7 +22,7 @@ footer{
   font-size: 0.5em;
 }
 
-/* admin functionality simplifying */
+/* admin.eta + manage.eta */
 body.admin{
   background: hsl(60, 20%, 60%);
   padding-top: 1em;
@@ -43,4 +43,52 @@ body.admin input[type="text"]{
 
 body.admin hr{
   border-color: black !important;
+}
+
+/* edit.eta */
+body.edit{
+  background-image: url("/static/img/edit-back.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+/* data.eta */
+body.data{
+  background-image: url("/static/img/data-back.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+/* item for data.eta and edit.eta */
+body.data div, body.edit div{
+  background: hsla(40, 20%, 80%, 1);
+  padding: 1em;
+  margin: 1em auto;
+  border-radius: 2em;
+  width:fit-content;
+  box-shadow: -20px 0 20px hsla(40, 100%, 50%, 0.2), 20px 0 20px hsla(40, 100%, 50%, 0.2);
+  word-break: break-all;
+}
+
+body.edit input[type="text"]{
+  margin: 0.5em;
+  padding: 0.5em;
+  padding-top: 1.5em;
+  width: calc(100% - 1em); /* add space , but not riase scrolls */
+  box-sizing: border-box; /* include padding and border in width calculation */
+  overflow: hidden; /* prevent horizontal scrollbar */
+  text-align: center;
+
+  border-color: black;
+  border-width: 0 0 1px 0; /* top, right, bottom, left */
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  background-color: hsla(0, 0%, 0%, 0);
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+body.edit input[type="text"]:focus {
+  outline-color: hsla(40, 20%, 80%, 1);
 }

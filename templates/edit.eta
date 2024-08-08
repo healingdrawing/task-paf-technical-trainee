@@ -4,7 +4,7 @@
   <%~ include("/head.eta") %>
   <title>TTSR Edit</title>
 </head>
-<body>
+<body class="edit">
   <header>
       <h1>Registration Data</h1>
   </header>
@@ -12,20 +12,36 @@
     <a href="/">Home</a>
     
     <form action="/data" method="post">
+    
+    <div>
     <h2>Ship name:</h2>
     <input type="text" id="ship_name" name="ship_name" value="<%= it.data.ship_name %>" maxlength="<%= it.limit.ship_name %>" required>
+    </div>
+    
+    <div>
     <h2>Ship number:</h2>
     <input type="text" id="ship_number" name="ship_number" value="<%= it.data.ship_number %>" maxlength="<%= it.limit.ship_number %>" required>
+    </div>
     
+    <div>
     <h2>Crew name:</h2>
     <input type="text" id="crew_name" name="crew_name" value="<%= it.data.crew_name %>" maxlength="<%= it.limit.crew_name %>" required>
+    </div>
+    
+    <div>
     <h2>Captain license number:</h2>
     <input type="text" id="captain_licence_number" name="captain_licence_number" value="<%= it.data.captain_licence_number %>" maxlength="<%= it.limit.captain_licence_number %>" required>
+    </div>
+    
+    <div>
     <h2>Captain name:</h2>
     <input type="text" id="captain_name" name="captain_name" value="<%= it.data.captain_name %>" maxlength="<%= it.limit.captain_name %>" required>
-
+    </div>    
+    
+    <div>
     <h2>valid until: <%= it.data.valid_until %></h2>
     <input type="date" id="valid_until" name="valid_until" value="<%= it.data.valid_until %>" readonly hidden required>
+    </div>
 
     <input type="submit" value="save">
     </form>
