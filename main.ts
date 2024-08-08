@@ -11,9 +11,9 @@ const app = new Hono()
 app.use(csrf({ origin: ['http://localhost:8000', 'https://crud-deno-hono-eta-oauth.deno.dev'], }))
 // app.use(csrf({ origin: (origin) => { console.log("IT IS ALIVE!",origin); return true }}))
 
-app.use(bodyLimit({maxSize: 10*1024, onError:  (c) => {
-  return  error_handler(custom_http_exception(413), c)
-},})) //10kb max for request body
+app.use(bodyLimit({maxSize: 1000*1024, onError: async (c) => {
+  return await error_handler(custom_http_exception(413), c)
+},})) //1000*kb max for request body
 
 app.use('/static/*', serveStatic({root:""})) //todo try support vue
 
