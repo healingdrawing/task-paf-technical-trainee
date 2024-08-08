@@ -25,9 +25,6 @@ footer{
 /* admin.eta + manage.eta */
 body.admin{
   background: hsl(60, 20%, 60%);
-  padding-top: 1em;
-  padding-bottom: 1em;
-  
 }
 
 body.admin input[type="text"]{
@@ -91,4 +88,19 @@ body.edit input[type="text"]{
 
 body.edit input[type="text"]:focus {
   outline-color: hsla(40, 20%, 80%, 1);
+}
+
+h1{
+  white-space: nowrap;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  overflow-x: none; /* destroy horizontal scrollbar */
+  margin: 0;
+  background: hsla(40, 100%, 20%, 0.6);
+  
+  text-shadow:
+   -2px -2px 0 hsla(40, 100%, 30%, 0.2),
+   2px -2px 0 hsla(40, 100%, 30%, 0.2),
+   -2px 2px 0 hsla(40, 100%, 30%, 0.2),
+   2px 2px 0 hsla(40, 100%, 30%, 0.2);
 }
