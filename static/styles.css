@@ -17,9 +17,11 @@ body{
   }
 }
 
-footer{
-  margin: 0 auto;
-  font-size: 0.5em;
+body.error{
+  background-image: url("/static/img/Flag_of_Åland.svg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 /* admin.eta + manage.eta */
@@ -30,7 +32,7 @@ body.admin{
 body.admin input[type="text"]{
   border-color: black;
   margin: 0.5em;
-  padding: 0.5em;
+  padding: 1.5em;
   width: calc(100% - 1em); /* add space , but not riase scrolls */
   box-sizing: border-box; /* include padding and border in width calculation */
   overflow: hidden; /* prevent horizontal scrollbar */
@@ -90,6 +92,20 @@ body.edit input[type="text"]:focus {
   outline-color: hsla(40, 20%, 80%, 1);
 }
 
+footer{
+  margin: 0 auto;
+  font-size: 0.5em;
+}
+
+footer a{
+  color: initial;
+  background: initial;
+  margin: initial;
+  padding: initial;
+}
+
+/* global */
+
 h1{
   white-space: nowrap;
   display: flex;
@@ -103,4 +119,37 @@ h1{
    2px -2px 0 hsla(40, 100%, 30%, 0.2),
    -2px 2px 0 hsla(40, 100%, 30%, 0.2),
    2px 2px 0 hsla(40, 100%, 30%, 0.2);
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button, a{
+  font-size: 1em;
+  display: inline-block; /* to prevent ignoring margin for <a> */
+  color:hsl(40, 20%, 80%);
+  background: hsla(0, 0%, 0%, 0.8);
+  margin: 0.5em;
+  padding: 1.5em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
+input[type="date"]{
+  font-size: 1em;
+  display: inline-block; /* to prevent ignoring margin for <a> */
+  margin: 0.5em;
+  padding: 1.5em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
+/* size patch for valid until reset button on admin panel */
+input[type="button"]{
+  font-size: initial; 
+}
+
+a{
+  margin: 0.5em;
+  text-decoration: none;
 }

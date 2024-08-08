@@ -18,9 +18,7 @@
     <br>
     <a href="/data">Data for the event</a>
     <br>
-    <% if (it.admin) { %>
-    <a href="/admin">Open admin panel</a>
-    <% } %>
+    <% if (it.admin) { %> <a href="/admin">Open admin panel</a> <% } %>
   </main>
 </body>
 </html>

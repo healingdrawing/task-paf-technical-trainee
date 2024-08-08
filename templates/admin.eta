@@ -9,19 +9,20 @@
 </style>
 <body class="admin">
   <header>
-      <h1>Welcome, <%= JSON.stringify(it.data.info) %> </h1>
-      <h2>Your system id is: <%= JSON.stringify(it.data.id) %></h2>
+      <h1>Welcome, Admin!</h1>
+      <h3>OAuth2 nickname: <%= JSON.stringify(it.data.info) %> </h3>
+      <h3>System id: <%= JSON.stringify(it.data.id) %></h3>
   </header>
   <main>
     <a href="/signout">Logout</a>
     <a href="/">Home</a>
     <hr>
-    <a href="/export-file">Export data to file(save database file on your computer)</a>
+    <a title="save database records on your computer" href="/export-file">Export data to file</a>
     <hr>
     <form action="/import-file" method="post" enctype="multipart/form-data">
       <input type="file" name="file" accept=".json" required>
       <br>
-      <input type="submit" value="Import data from file(use database file from your computer). Data will be updated">
+      <input title="update database records from file" type="submit" value="Import data from file">
     </form>
 
     <hr>

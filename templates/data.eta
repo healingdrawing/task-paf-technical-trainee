@@ -12,32 +12,32 @@
     <a href="/">Home</a>
     
     <div>
-    <h2>Ship name:</h2>
+    <h3>Ship name:</h3>
     <p><%= it.ship_name %></p>
     </div>
     
     <div>
-    <h2>Ship number:</h2>
+    <h3>Ship number:</h3>
     <p><%= it.ship_number %></p>
     </div>
     
     <div>
-    <h2>Crew name:</h2>
+    <h3>Crew name:</h3>
     <p><%= it.crew_name %></p>
     </div>
     
     <div>
-    <h2>Captain license number:</h2>
+    <h3>Captain license number:</h3>
     <p><%= it.captain_licence_number %></p>
     </div>
     
     <div>
-    <h2>Captain name:</h2>
+    <h3>Captain name:</h3>
     <p><%= it.captain_name %></p>
     </div>
 
     <div>
-    <h2>valid until: <%= it.valid_until %></h2>
+    <h3>valid until: <%= it.valid_until %></h3>
     </div>
 
     <a href="/data/edit">Edit</a>

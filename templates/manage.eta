@@ -14,25 +14,25 @@
     <h1>Registration Data Record</h1>
     
     <form action="/manage" method="post">
-    <h2>System id:</h2>
+    <h3>System id:</h3>
     <input type="text" id="system_id" name="system_id" value="<%= it.system_id %>" readonly hidden required>
     <p><%= it.system_id %></p>
     
-    <h2>Ship name:</h2>
+    <h3>Ship name:</h3>
     <input type="text" id="ship_name" name="ship_name" value="<%= it.record.ship_name %>" required>
-    <h2>Ship number:</h2>
+    <h3>Ship number:</h3>
     <input type="text" id="ship_number" name="ship_number" value="<%= it.record.ship_number %>" required>
     
-    <h2>Crew name:</h2>
+    <h3>Crew name:</h3>
     <input type="text" id="crew_name" name="crew_name" value="<%= it.record.crew_name %>" required>
-    <h2>Captain license number:</h2>
+    <h3>Captain license number:</h3>
     <input type="text" id="captain_licence_number" name="captain_licence_number" value="<%= it.record.captain_licence_number %>" required>
-    <h2>Captain name:</h2>
+    <h3>Captain name:</h3>
     <input type="text" id="captain_name" name="captain_name" value="<%= it.record.captain_name %>" required>
 
-    <h2>Valid until: <input type="date" id="valid_until" name="valid_until" value="<%= it.record.valid_until %>" required><input type="button" id="reset_date" name="reset_date" value="reset" onclick="document.getElementById('valid_until').value = '0001-01-01'"></h2>
+    <h3>Valid until: <input type="date" id="valid_until" name="valid_until" value="<%= it.record.valid_until %>" required><input type="button" id="reset_date" name="reset_date" value="reset" onclick="document.getElementById('valid_until').value = '0001-01-01'"></h3>
 
-    <input type="submit" value="save">
+    <button type="submit">save</button>
     <input type="reset" value="restore">
     <input type="button" onclick="window.reset()" value="reset">
     </form>
