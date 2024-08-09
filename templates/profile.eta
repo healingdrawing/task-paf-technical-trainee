@@ -20,5 +20,7 @@
     <br>
     <% if (it.admin) { %> <a href="/admin">Open admin panel</a> <% } %>
   </main>
+
+  <div id="vue-clock"></div>
 </body>
 </html>

@@ -1,6 +1,12 @@
 import { defineComponent } from './vue.esm-browser.prod.js';
 
 export default defineComponent({
+  props: {
+    blink: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       hours: 0,
@@ -31,7 +37,7 @@ export default defineComponent({
   template: `
     <div class="clock">
       <div class="hour-minute">
-        {{ formatTime(hours) }}:{{ formatTime(minutes) }}
+        {{ formatTime(hours) }}<span :style="this.blink ? 'animation: blink 1s step-end infinite' : ''">:</span>{{ formatTime(minutes) }}
       </div>
       <table class="seconds">
         <tr>
