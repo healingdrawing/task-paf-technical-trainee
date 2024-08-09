@@ -25,10 +25,12 @@ GOOGLE_OAUTH_CONFIG_REDIRECT_URI=http://localhost:8000/callback-google
 X_OAUTH_CONFIG_REDIRECT_URI=http://localhost:8000/callback-x
 
 ADMIN_IDS=idfromappscreen,anotheradmin,commaseparated
+CSRF_ORIGIN=http://localhost:8000
 ```
-- for deno deploy, the redirect_uri `localhost:8000` should be replaced to used domain.  
+- for deno deploy, the `CSRF_ORIGIN` and the `*_CONFIG_REDIRECT_URI` prefix `localhost:8000` should be replaced to used domain.  
 - to get clent_id and client_secret first configure oauth2 for google and x/twitter accounts where you registered.  
 - at the moment (2024) the solutions used have free plans.  
+- `ADMIN_IDS` displayed in profile after login, and provided by OAuth2 API. So, first login without admin rights, then get id, finally add id into `.env` or deploy environment variable.  
 
 ## Requirements 
 

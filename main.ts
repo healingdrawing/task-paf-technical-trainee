@@ -1,6 +1,6 @@
 import {
   Hono, csrf, bodyLimit, serveStatic, home, data, admin, export_file, import_file, manage,
-  error_handler,
+  error_handler, get_csrf_origin,
   signout,
   signin_google, callback_google,
   signin_x, callback_x,
@@ -9,18 +9,16 @@ import {
 } from "./deps.ts"
 
 const app = new Hono()
-app.use(csrf({ origin: ['http://localhost:8000', 'https://task-paf-technical-trainee.deno.dev'], }))
+app.use(csrf({ origin: [get_csrf_origin()], }))
 // app.use(csrf({ origin: (origin) => { console.log("IT IS ALIVE!",origin); return true }}))
 
-/*
-app.use(bodyLimit({maxSize: 1000*1024, onError: async (c) => {
+app.use(bodyLimit({maxSize: 11*1024, onError: async (c) => {
   return await error_handler(custom_http_exception(413), c)
-},})) //1000*kb max for request body
-*/
+},})) //11kb max for request body
 
 app.use('/static/*', serveStatic({root:""})) //todo try support vue
 
-app.route("/vue-slideshow", vue_slideshow) //todo remove later. for home page injection
+app.route("/vue-slideshow", vue_slideshow)
 
 app.route('/', home)
 app.route("/data", data)

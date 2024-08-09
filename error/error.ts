@@ -66,3 +66,21 @@ const error_message = (status_code:StatusCode):string => {
 
   return r
 }
+
+/** return csrf origin from .env(+print it) or throw an error */
+export const get_csrf_origin = () => {
+  const raw = Deno.env.get("CSRF_ORIGIN")
+  if (raw === undefined || raw === ""){
+    console.log(dprint("ENV ERROR", "CSRF_ORIGIN is undefined"))
+    Deno.exit(2)
+  } 
+  
+  try{
+    console.log(dprint("CSRF_ORIGIN", raw))
+    new URL(raw)
+    return raw
+  }catch{
+    console.log(dprint("ENV ERROR", "CSRF_ORIGIN is incorrect"))
+    Deno.exit(2)
+  }
+}
