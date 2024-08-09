@@ -1,12 +1,14 @@
 
 import {
-  Hono, join,
+  Hono,
   throw_error,
 } from "../../deps.ts"
 
 const app = new Hono()
 
 app.get("/",
+  //todo: just to disable linter's whining
+  // deno-lint-ignore require-await
   async (c) => {
     try{
       const date = new Date()
