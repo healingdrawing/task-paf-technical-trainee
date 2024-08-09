@@ -18,6 +18,7 @@ export { Hono } from "https://deno.land/x/hono@v4.3.11/mod.ts"
 export { type RedirectStatusCode } from "https://deno.land/x/hono@v4.3.11/utils/http-status.ts"
 export { csrf } from "https://deno.land/x/hono@v4.3.11/middleware/csrf/index.ts"
 export { bodyLimit } from "https://deno.land/x/hono@v4.3.11/middleware/body-limit/index.ts"
+export { secureHeaders } from 'https://deno.land/x/hono@v4.3.11/middleware/secure-headers/index.ts'
 
 export { loadSync } from "https://deno.land/std@0.194.0/dotenv/mod.ts"
 
