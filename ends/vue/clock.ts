@@ -9,8 +9,9 @@ const app = new Hono()
 app.get("/",
   async (c) => {
     try{
-      const date = new Date();
-      const hours = date.getHours();
+      const date = new Date()
+      const timezoneOffset = Math.round(date.getTimezoneOffset())
+      const hours = date.getHours() + (timezoneOffset / 60) // UTC+0
       const minutes = date.getMinutes();
       const seconds = date.getSeconds();
       return c.json([hours, minutes, seconds]);
