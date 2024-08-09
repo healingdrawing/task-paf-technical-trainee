@@ -72,3 +72,4 @@ export { default as callback_x } from "./oauth2/callback_x.ts"
 
 /* manage vue3 specific requests */
 export { default as vue_slideshow } from "./ends/vue/slideshow.ts"
+export { default as vue_clock } from "./ends/vue/clock.ts"

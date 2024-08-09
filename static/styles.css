@@ -114,6 +114,8 @@ footer a{
   background: initial;
   margin: initial;
   padding: initial;
+  border: initial;
+  text-decoration: underline;
 }
 
 /* global */

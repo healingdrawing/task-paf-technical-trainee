@@ -35,3 +35,50 @@ img {
   min-height: 100%;
   object-fit: cover;
 }
+
+
+/* Clock */
+table.seconds{
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+table.seconds td{
+  width: 8px;
+  height: 8px;
+  padding: 0;
+}
+
+div.container{ /* to center div.active perfectly */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.active{
+  background: hsl(40, 20%, 80%);
+  width: 50%;
+  height: 50%;
+}
+
+.clock{
+  display: inline-block;
+  position: fixed;
+  bottom: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  background: hsla(0, 0%, 0%, 0.8);
+  color:hsl(40, 20%, 80%);
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  padding-bottom: 0.2em;
+  font-family: "digits";
+  font-size: 124%;
+}
+
+@font-face {
+  font-family: 'digits';
+  src: url('calculatorNumbers.ttf');
+}

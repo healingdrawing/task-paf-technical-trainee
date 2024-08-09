@@ -23,5 +23,6 @@
     <a href="/signin-x">Login using X</a>
   </main>
 
+  <div id="vue-clock"></div>
 </body>
 </html>

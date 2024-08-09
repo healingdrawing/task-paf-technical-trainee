@@ -1,12 +1,13 @@
 import {
-  secureHeaders,
-  Hono, csrf, bodyLimit, serveStatic, home, data, admin, export_file, import_file, manage,
-  error_handler, get_csrf_origin,
+  secureHeaders, csrf, get_csrf_origin,
+  Hono, bodyLimit, serveStatic, home, data, admin, export_file, import_file, manage,
+  error_handler,
   signout,
   signin_google, callback_google,
   signin_x, callback_x,
   custom_http_exception,
   vue_slideshow,
+  vue_clock,
 } from "./deps.ts"
 
 const app = new Hono()
@@ -24,6 +25,7 @@ app.use(bodyLimit({maxSize: 11*1024, onError: async (c) => {
 app.use('/static/*', serveStatic({root:""})) //todo try support vue
 
 app.route("/vue-slideshow", vue_slideshow)
+app.route("/vue-clock", vue_clock)
 
 app.route('/', home)
 app.route("/data", data)
