@@ -1,7 +1,19 @@
+@font-face {
+  font-family: 'Reddit Sans';
+  src: url('RedditSans-VariableFont_wght.ttf');
+}
+
 body{
   margin: 0;
   padding: 0;
   text-align: center;
+
+  font-family: "Reddit Sans", monospace;
+  font-style: normal;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  
+  letter-spacing: 1px;
 
   background: black;
 
@@ -74,12 +86,12 @@ body.data div, body.edit div{
 body.edit input[type="text"]{
   margin: 0.5em;
   padding: 0.5em;
-  padding-top: 1.5em;
+  padding-top: 1.6em;
   width: calc(100% - 1em); /* add space , but not riase scrolls */
   box-sizing: border-box; /* include padding and border in width calculation */
   overflow: hidden; /* prevent horizontal scrollbar */
   text-align: center;
-
+  font-size: 1.3em;
   border-color: black;
   border-width: 0 0 1px 0; /* top, right, bottom, left */
   border-bottom-left-radius: 1em;
@@ -89,7 +101,7 @@ body.edit input[type="text"]{
 }
 
 body.edit input[type="text"]:focus {
-  outline-color: hsla(40, 20%, 80%, 1);
+  outline-color: hsla(40, 20%, 80%, 1);  
 }
 
 footer{
@@ -105,6 +117,10 @@ footer a{
 }
 
 /* global */
+
+input[type="text"]{
+  font-weight: bold;
+}
 
 h1{
   white-space: nowrap;
@@ -129,6 +145,7 @@ button, a{
   display: inline-block; /* to prevent ignoring margin for <a> */
   color:hsl(40, 20%, 80%);
   background: hsla(0, 0%, 0%, 0.8);
+  border: 1px solid hsla(0, 0%, 0%, 0.8); /* firefox fix */
   margin: 0.5em;
   padding: 1.5em;
   padding-left: 2.5em;
@@ -137,7 +154,6 @@ button, a{
 
 input[type="date"]{
   font-size: 1em;
-  display: inline-block; /* to prevent ignoring margin for <a> */
   margin: 0.5em;
   padding: 1.5em;
   padding-left: 2.5em;
