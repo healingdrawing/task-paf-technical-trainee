@@ -14,7 +14,8 @@ const app = new Hono()
 // app.use(csrf({ origin: (origin) => { console.log("IT IS ALIVE!",origin); return true }}))
 
 
-app.use(secureHeaders({strictTransportSecurity: false})) // todo: requires precised configuration
+// app.use(secureHeaders({strictTransportSecurity: false})) // todo: requires precised configuration
+app.use(secureHeaders())
 
 app.use(bodyLimit({maxSize: 11*1024, onError: async (c) => {
   return await error_handler(custom_http_exception(413), c)
