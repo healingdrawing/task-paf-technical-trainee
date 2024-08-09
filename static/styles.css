@@ -49,6 +49,7 @@ body.admin input[type="text"]{
   box-sizing: border-box; /* include padding and border in width calculation */
   overflow: hidden; /* prevent horizontal scrollbar */
   text-align: center;
+  font-size: 1.3em;
 }
 
 
