@@ -15,7 +15,7 @@ const app = new Hono()
 
 
 // app.use(secureHeaders({strictTransportSecurity: false})) // todo: requires precised configuration
-app.use(secureHeaders())
+app.use(secureHeaders())// todo: in some reasons, with this instead of csrf, the redirect to home page happens when logout from admin panel, so error of authentication skipped or managed automatically.
 
 app.use(bodyLimit({maxSize: 11*1024, onError: async (c) => {
   return await error_handler(custom_http_exception(413), c)
