@@ -50,7 +50,7 @@ export const custom_http_exception = (status_code:StatusCode):HTTPException => {
 }
 
 const error_message = (status_code:StatusCode):string => {
-  let r:string = "wtf"
+  let r:string
   
   switch(status_code){
     case 400: r = "Bad Request"; break
