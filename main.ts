@@ -10,7 +10,7 @@ import {
 } from "./deps.ts"
 
 const app = new Hono()
-app.use(csrf({ origin: [get_csrf_origin()], }))
+//app.use(csrf({ origin: [get_csrf_origin()], }))
 // app.use(csrf({ origin: (origin) => { console.log("IT IS ALIVE!",origin); return true }}))
 
 
