@@ -5,7 +5,7 @@ export { providers } from "./oauth2/utils.ts"
 
 // const db_path = join(Deno.cwd(), "kvdb")
 // console.log(db_path)
-export const kvdb = await Deno.openKv() //todo in some reasons Deno.openKv("db") crushes deploying. So in time of local dev. first run with "db". It will creates the db db-shm db-wal. After that remove "db". Later it works as expected. What actually very specific implementation too.
+export const kvdb = await Deno.openKv() //todo now it is clear that custom Deno.KV database is not allowed on deploy, and can be used only in development. So Deno.openKv("kvdb") will fail on deploy, but fine in development.
 
 
 import { join } from "https://deno.land/std@0.224.0/path/mod.ts"
