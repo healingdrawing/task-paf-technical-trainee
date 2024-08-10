@@ -1,5 +1,5 @@
 import {
-  secureHeaders, csrf, get_csrf_origin,
+  secureHeaders, // csrf, get_csrf_origin,
   Hono, bodyLimit, serveStatic, home, data, admin, export_file, import_file, manage,
   error_handler,
   signout,
@@ -11,18 +11,18 @@ import {
 } from "./deps.ts"
 
 const app = new Hono()
-app.use(csrf({ origin: [get_csrf_origin()], })) // todo: in some reasons csrf confliction with secureHeaders. So only one can work in same time
+// app.use(csrf({ origin: [get_csrf_origin()], })) // todo: in some reasons csrf conflicting with secureHeaders. So only one can work in same time. Confirmed localhost + deployed. Community keep silent. Docs not clear.
 // app.use(csrf({ origin: (origin) => { console.log("IT IS ALIVE!",origin); return true }}))
 
 
-// app.use(secureHeaders({strictTransportSecurity: false})) // todo: requires precised configuration
+// app.use(secureHeaders({strictTransportSecurity: false})) // todo: probably requires precised configuration if use in couple with csrf.
 app.use(secureHeaders())// todo: in some reasons, with this instead of csrf, the redirect to home page happens when logout from admin panel, so error of authentication skipped or managed automatically.
 
 app.use(bodyLimit({maxSize: 11*1024, onError: async (c) => {
   return await error_handler(custom_http_exception(413), c)
 },})) //11kb max for request body
 
-app.use('/static/*', serveStatic({root:""})) //todo try support vue
+app.use('/static/*', serveStatic({root:""}))
 
 app.route("/vue-slideshow", vue_slideshow)
 app.route("/vue-clock", vue_clock)
