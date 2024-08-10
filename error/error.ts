@@ -4,9 +4,14 @@ import { StatusCode } from "https://deno.land/x/hono@v4.3.11/utils/http-status.t
 import { eta, dprint } from "../deps.ts"
 
 export const error_handler:ErrorHandler = async (err, c) => {
-  console.log(dprint("ERROR_HANDLER", err.toString())) // todo remove later
+  console.log(dprint("ERROR_HANDLER", err.toString())) // todo: remove later
   
-  let e = err as HTTPException
+  // console.log( err.name, "\n-------\n", err.message, "\n-------\n", err.cause, "\n-------\n", err.stack, "\n-------\n")
+  
+  let e = catch_user_oauth2_cancellation(err)
+
+  if (e === null) e = err as HTTPException // error is not cancellation
+  
   if (e.status === undefined || e.message === undefined){
     e = {status:500, message:"Internal Server Error"} as HTTPException
     return c.html(
@@ -16,6 +21,31 @@ export const error_handler:ErrorHandler = async (err, c) => {
   }
   
   return c.html(await eta.renderAsync("error", {code:e.status, info:e.message}),e.status)
+}
+
+/** try to catch user cancellation of oauth2 and convert 500 to 502, to manage cancellation properly. */
+function catch_user_oauth2_cancellation(err:Error):HTTPException | null{
+  /* case of X cancellation */
+  if (
+    err.name.trim() === "Error"
+    && err.message.trim() === "access_denied"
+    // probably bottom statements can be omitted
+    && err.cause === undefined
+    && err.stack
+    && err.stack.includes("oauth2_client")
+    && err.stack.includes("validateAuthorizationResponse")
+    && err.stack.includes("eventLoopTick")
+  ){
+    if (err.stack.includes("callback_x.ts")){
+      console.log(dprint("catch_user_oauth2_cancellation()", "user cancelled X OAuth2 request"))
+      return {status:502, message:"Bad Gateway. X OAuth2 access denied"} as HTTPException
+    } else if (err.stack.includes("callback_google.ts")){
+      console.log(dprint("catch_user_oauth2_cancellation()", "user cancelled Google OAuth2 request"))
+      return {status:502, message:"Bad Gateway. Google OAuth2 access denied"} as HTTPException
+    }
+  } 
+
+  return null
 }
 
 /** throw an error properly to handle using app.onError()
