@@ -15,7 +15,7 @@
   <%~ include("/ppc.eta") %>
 
   <header>
-    <h1>The Tall Ships Races Registration</h1>
+    <h1>The Tall Ships Races Registry</h1>
   </header>
   <main>
     <a href="/signin-google">Login using Google</a>
