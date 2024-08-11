@@ -7,8 +7,6 @@ export const error_handler:ErrorHandler = async (err, c) => {
   console.log(dprint("ERROR_HANDLER", err.toString())) // todo: remove later
   
   let e = err as HTTPException
-  console.log("==========e",e)
-  console.log("==========e.status",e.status)
   
   if (e.status === undefined || e.message === undefined){
     e = {status:500, message:"Internal Server Error"} as HTTPException
