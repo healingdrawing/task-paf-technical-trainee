@@ -8,8 +8,10 @@
   <header>
     <h1>Error <%= it.code %></h1>
   </header>
-  <%= it.info %>
-  <br>
-  <a href="/">Home</a>
+  <main class="zoom">
+    <%= it.info %>
+    <br>
+    <a href="/">Home</a>
+  </main>
 </body>
 </html>

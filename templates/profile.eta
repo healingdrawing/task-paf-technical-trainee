@@ -13,7 +13,7 @@
   <header>
       <h1>⚓️ Welcome, <%= JSON.stringify(it.data.info) %> ⚓️</h1>
   </header>
-  <main>
+  <main class="zoom">
     <a href="/signout">Logout</a>
     <br>
     <a href="/data">Data for the event</a>
