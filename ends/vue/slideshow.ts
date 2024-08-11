@@ -13,7 +13,6 @@ app.get("/:id",
       const slidesDir = join(Deno.cwd(), "static", "img", "slides",id)
       const files: string[] = []
       for await (const dirEntry of Deno.readDir(slidesDir)) {
-        // console.log(dirEntry.name) //todo remove later
         if (!dirEntry.name.endsWith('.md')){
           files.push(dirEntry.name)
         }

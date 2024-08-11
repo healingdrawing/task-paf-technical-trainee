@@ -12,7 +12,7 @@ app.get("/",
   async (c) => {
     const session_id = await getSessionId(c.req.raw).then(entry => entry);
     if (session_id === undefined || session_id === "") {
-      console.log("WARNING: session_id", session_id) //todo can be refactored or removed, since fires just on logout or first visit
+      // console.log("WARNING: session_id", session_id) //todo can be refactored or removed, since fires just on logout or first visit
       return c.html( await eta.renderAsync("index", {}) )
     }
 
@@ -34,7 +34,10 @@ app.get("/",
       return throw_error(502, "incorrect response from oauth api")
     }
     
-    if (is_admin(data.id)) console.log("Admin logged in at", new Date().toUTCString()) //todo potential place where logged user profile data print can be added, in case of production testing
+    if (is_admin(data.id)) console.log(
+      `Admin's session. ID [ ${session_id} ] at`,
+      new Date().toUTCString()
+    ) //todo potential place where logged user profile data print can be added, in case of production testing
 
     try{
       return c.html(

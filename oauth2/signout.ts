@@ -7,8 +7,8 @@ app.get("/",
   async (c) => {
     const session_id = await getSessionId(c.req.raw)
     .then(entry => entry as string | undefined)
-    console.log("signout session_id", session_id)
-
+    
+    /* clear database */
     if (session_id !== undefined){
       await kvdb.delete(["tokens", session_id])
       await kvdb.delete(["oauth2-providers", session_id])

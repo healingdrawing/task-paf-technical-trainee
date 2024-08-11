@@ -87,7 +87,6 @@ export async function get_data(
   }
 
   try {
-    console.log(data_raw)
     data = await data_schema.parseAsync(data_raw)
   } catch (e) {
     console.log("ERROR: parse data from kvdb | ", e, " | profile id ", profile.id);
