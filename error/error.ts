@@ -7,6 +7,8 @@ export const error_handler:ErrorHandler = async (err, c) => {
   console.log(dprint("ERROR_HANDLER", err.toString())) // todo: remove later
   
   let e = err as HTTPException
+  console.log("==========e",e)
+  console.log("==========e.status",e.status)
   
   if (e.status === undefined || e.message === undefined){
     e = {status:500, message:"Internal Server Error"} as HTTPException
@@ -14,9 +16,10 @@ export const error_handler:ErrorHandler = async (err, c) => {
       await eta.renderAsync("error", {code:e.status, info:e.message}),
       500
     )
+  }else{
+    return c.html(await eta.renderAsync("error", {code:e.status, info:e.message, name:e.name}),e.status)
   }
   
-  return c.html(await eta.renderAsync("error", {code:e.status, info:e.message}),e.status)
 }
 
 /** throw an error properly to handle using app.onError()
@@ -42,15 +45,24 @@ export function throw_error(status_code:StatusCode, message?:string){
   else throw new HTTPException(status_code, { message: error_message(status_code) })
 }
 
-export const custom_http_exception = (status_code:StatusCode):HTTPException => {
-  console.log(dprint(
-    "CUSTOM_HTTP_EXCEPTION",
-    status_code.toString() + " | " + error_message(status_code)
-  ))
-  return new HTTPException(status_code, {message: error_message(status_code)})
+class Custom_HTTP_Error extends HTTPException {
+  constructor(status_code: StatusCode, message?:string) {
+    super(status_code);
+    this.name = message || ""
+    this.message = (message !== undefined) ? message : error_message(status_code)
+  }
 }
 
-const error_message = (status_code:StatusCode):string => {
+export function custom_error(status_code:StatusCode, message?:string):Error{
+  console.log(dprint(
+    "CUSTOM_ERROR",
+    status_code.toString() + " | " + message
+  ))
+  
+  return new Custom_HTTP_Error(status_code, message)
+}
+
+function error_message(status_code:StatusCode):string{
   let r:string
   
   switch(status_code){
@@ -69,7 +81,7 @@ const error_message = (status_code:StatusCode):string => {
 }
 
 /** return csrf origin from .env(+print it) or throw an error */
-export const get_csrf_origin = () => {
+export function get_csrf_origin() {
   const raw = Deno.env.get("CSRF_ORIGIN")
   if (raw === undefined || raw === ""){
     console.log(dprint("ENV ERROR", "CSRF_ORIGIN is undefined"))

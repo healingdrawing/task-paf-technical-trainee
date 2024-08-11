@@ -5,7 +5,7 @@ import {
   signout,
   signin_google, callback_google,
   signin_x, callback_x,
-  custom_http_exception,
+  custom_error,
   vue_slideshow,
   vue_clock,
   cors,
@@ -20,12 +20,10 @@ const app = new Hono()
 app.use(secureHeaders())// todo: in some reasons, with this instead of csrf, the redirect to home page happens when logout from admin panel, so error of authentication skipped or managed automatically.
 
 app.use(bodyLimit({maxSize: 11*1024, onError: async (c) => {
-  return await error_handler(custom_http_exception(413), c)
+  return await error_handler(custom_error(413), c)
 },})) //11kb max for request body
 
-app.use(cors({
-  origin: get_csrf_origin()
-}))
+app.use(cors({ origin: get_csrf_origin() }))
 
 app.use('/static/*', serveStatic({root:""}))
 
@@ -46,6 +44,10 @@ app.route("/signin-x", signin_x)
 
 app.route("/callback-google", callback_google)
 app.route("/callback-x", callback_x)
+
+app.get('*', async (c) => {
+  return await error_handler(custom_error(404, "Use buttons, creature!"), c)
+})
 
 app.onError(error_handler)
 

@@ -12,6 +12,10 @@
     <%= it.info %>
     <br>
     <a href="/">Home</a>
+    <br>
+    <% if (it.name) { %>
+      <img src="/static/img/slides/error/users_in_sysadmin_eyes.gif" />
+    <% } %>
   </main>
 </body>
 </html>

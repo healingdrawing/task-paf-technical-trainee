@@ -181,6 +181,10 @@ a{
   transform: scale(1.1);
 }
 
+.zoom img{
+  max-width: 100%;
+}
+
 @media (orientation: portrait) and (max-aspect-ratio: 4/3) and (max-width: 720px) {
   h1 {
     font-size: 120%;
