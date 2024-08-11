@@ -11,7 +11,7 @@ import {
 } from "./deps.ts"
 
 const app = new Hono()
-// app.use(csrf({ origin: [get_csrf_origin()], })) // todo: in some reasons csrf conflicting with secureHeaders. So only one can work in same time. Confirmed localhost + deployed. Community keep silent. Docs not clear.
+// app.use(csrf({ origin: [get_csrf_origin()], })) // todo: in some reasons csrf conflicting with secureHeaders. So only one can work in same time. Confirmed localhost + deployed. Community keep silent. Docs not clear. Since OAuth2 tokens and session_id checks used for post request, the csrf is turned off, to allow secureHeaders work properly.
 // app.use(csrf({ origin: (origin) => { console.log("IT IS ALIVE!",origin); return true }}))
 
 
