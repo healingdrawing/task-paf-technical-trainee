@@ -13,6 +13,7 @@ import { Eta } from "https://deno.land/x/eta@v3.4.0/src/index.ts"
 export const eta = new Eta({ views: join(Deno.cwd(), "templates") })
 
 export { serveStatic } from "https://deno.land/x/hono@v4.3.11/middleware.ts"
+export { cors } from 'https://deno.land/x/hono@v4.3.11/middleware/cors/index.ts'
 
 export { Hono } from "https://deno.land/x/hono@v4.3.11/mod.ts"
 export { type RedirectStatusCode } from "https://deno.land/x/hono@v4.3.11/utils/http-status.ts"

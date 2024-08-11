@@ -1,5 +1,5 @@
 import {
-  secureHeaders, // csrf, get_csrf_origin,
+  secureHeaders, get_csrf_origin, // csrf,
   Hono, bodyLimit, serveStatic, home, data, admin, export_file, import_file, manage,
   error_handler,
   signout,
@@ -8,6 +8,7 @@ import {
   custom_http_exception,
   vue_slideshow,
   vue_clock,
+  cors,
 } from "./deps.ts"
 
 const app = new Hono()
@@ -21,6 +22,10 @@ app.use(secureHeaders())// todo: in some reasons, with this instead of csrf, the
 app.use(bodyLimit({maxSize: 11*1024, onError: async (c) => {
   return await error_handler(custom_http_exception(413), c)
 },})) //11kb max for request body
+
+app.use(cors({
+  origin: get_csrf_origin()
+}))
 
 app.use('/static/*', serveStatic({root:""}))
 
