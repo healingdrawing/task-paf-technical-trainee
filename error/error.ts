@@ -14,8 +14,10 @@ export const error_handler:ErrorHandler = async (err, c) => {
       await eta.renderAsync("error", {code:e.status, info:e.message}),
       500
     )
-  }else{
+  }else if (e instanceof Custom_HTTP_Error){
     return c.html(await eta.renderAsync("error", {code:e.status, info:e.message, name:e.name}),e.status)
+  }else{
+    return c.html(await eta.renderAsync("error", {code:e.status, info:e.message}),e.status)
   }
   
 }
