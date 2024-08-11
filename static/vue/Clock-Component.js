@@ -26,7 +26,8 @@ export default defineComponent({
     async fetchTime() {
       const response = await fetch('/vue-clock');
       const data = await response.json();
-      this.hours = data[0] - Math.round(new Date().getTimezoneOffset() / 60); // UTC+0 -> local machine time
+      const raw_hours = data[0] - Math.round(new Date().getTimezoneOffset() / 60); // UTC+0 -> local machine time
+      this.hours = (raw_hours > 23) ? 0 : raw_hours // patch to avoid 24:00 - 24:59
       this.minutes = data[1];
       this.seconds = data[2];
     },
