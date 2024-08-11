@@ -16,7 +16,7 @@ export default {
       try {
         const response = await fetch(props.path);
         const data = await response.json();
-        const promises = data.map(url => fetch(url).then(response => response.blob()));
+        const promises = data.map(url => fetch(url, { cache: 'default', mode:'cors' }).then(response => response.blob()));
         const blobs = await Promise.all(promises);
         slides.value = blobs.map(blob => URL.createObjectURL(blob));
         start_slideshow();
