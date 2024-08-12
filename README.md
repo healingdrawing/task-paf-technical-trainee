@@ -6,9 +6,12 @@ Double login (Google, X/Twitter) + manage collected data using the admin panel.
 
 ## Description 
 
-- [Vue3(frontend)](https://vuejs.org) self-hosted script `vue.esm-browser.prod.js` used to improve UI/UX experience.  
-- [TypeScript(backend)](https://www.typescriptlang.org) web application.  
-- [Deno(runtime)](https://github.com/denoland/deno) + [Hono(framework)](https://github.com/honojs/hono) + [Eta(template render engine)](https://github.com/eta-dev/eta) based.  
+### Frontend technology stack:
+- JavaScript([Vue3](https://vuejs.org)) self-hosted script `vue.esm-browser.prod.js` used to improve UI/UX experience.  
+
+### Backend technology stack:
+- TypeScript([Deno](https://github.com/denoland/deno)) based web application.  
+- Deno(runtime) + [Hono(framework)](https://github.com/honojs/hono) + [Eta(template render engine)](https://github.com/eta-dev/eta) based.  
 - [OAuth2(Open Authorization)](https://oauth.net/2/) implemented for [Google](https://accounts.google.com/) and [X/Twitter](https://twitter.com) accounts, using [deno_vk_oauth](https://github.com/denoland/deno_kv_oauth).  
 - common user can edit personal data record.  
 - admin panel used to manage data records collected from users.  
