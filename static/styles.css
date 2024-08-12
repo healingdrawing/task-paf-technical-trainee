@@ -189,6 +189,15 @@ a{
   max-width: 100%;
 }
 
+.qr{
+  position:fixed;
+  transform: translateX(-50%);
+  bottom:2.5em;
+  width:3.79em;
+  min-width: 64px;
+  min-height: 64px;
+}
+
 @media (orientation: portrait) and (max-aspect-ratio: 4/3) and (max-width: 720px) {
   h1 {
     font-size: 120%;

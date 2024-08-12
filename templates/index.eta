@@ -23,6 +23,8 @@
     <a href="/signin-x">Login using X</a>
   </main>
 
+  <img class="qr" src="/static/img/qr.svg" >
+
   <div id="vue-clock"></div>
 </body>
 </html>

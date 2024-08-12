@@ -44,8 +44,8 @@ export default {
   template: `
     <div class="slideshow">
       <div v-for="(slide, index) in slides" :key="index" class="slide" :style="{ opacity: currentSlide === index ? 1 : 0 }">
-        <img :src="slide" alt="Slide" />
+        <img class="slide" :src="slide" alt="Slide" />
       </div>
     </div>
-  `,  
+  `,
 };

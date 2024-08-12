@@ -26,7 +26,7 @@
   overflow: hidden;
 }
 
-img {
+img.slide {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -57,7 +57,7 @@ div.container{ /* to center div.active perfectly */
   align-items: center;
 }
 
-div.active{
+div.active{ /* progress bar item, marker of 10 sec */
   background: hsl(40, 20%, 80%);
   width: 50%;
   height: 50%;
@@ -74,9 +74,10 @@ div.active{
   color:hsl(40, 20%, 80%);
   padding-left: 0.2em;
   padding-right: 0.2em;
-  padding-bottom: 0.2em;
   font-family: "digits";
   font-size: 124%;
+  min-width: calc(64px - 0.4em); /* - (padding left + right) */
+  min-height: 40px;
 }
 
 @font-face {
