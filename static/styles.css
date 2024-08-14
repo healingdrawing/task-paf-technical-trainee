@@ -36,6 +36,20 @@ body.error{
   background-size: cover;
 }
 
+body.index{
+  background-image: url("/static/img/slides/homepage/mariehamn-aland-aland-islands-island.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+body.profile{
+  background-image: url("/static/img/slides/profilepage/web-AlbanusTakaViistoHorizontalErik_a.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
 /* admin.eta + manage.eta */
 body.admin{
   background: hsl(60, 20%, 60%);
@@ -51,7 +65,6 @@ body.admin input[type="text"]{
   text-align: center;
   font-size: 1.3em;
 }
-
 
 body.admin hr{
   border-color: black !important;
