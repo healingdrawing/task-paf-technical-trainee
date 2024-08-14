@@ -27,4 +27,5 @@
 
   <div id="vue-clock"></div>
 </body>
+  <script type="module" src="/static/vue/js-friendly-browser.js"></script>
 </html>
