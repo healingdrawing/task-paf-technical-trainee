@@ -25,6 +25,11 @@ app.use(bodyLimit({maxSize: 11*1024, onError: async (c) => {
 
 app.use(cors({ origin: get_csrf_origin() }))
 
+/* raw patch for /static and /static/ case when the browser navigation became frozen. But it should not happen without extra hands activity ;). Reported to the community */
+app.get('/static', async (c) => { return await error_handler(custom_error(404, "Use buttons, creature!"), c) })
+app.get('/static/', async (c) => { return await error_handler(custom_error(404, "Use buttons, creature!"), c) })
+/* end of the patch */
+
 app.use('/static/*', serveStatic({root:""}))
 
 app.route("/vue-slideshow", vue_slideshow)
